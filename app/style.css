@@ -216,6 +216,9 @@ body:has(.event-dialog[open]){overflow:hidden}
 }
 .mission-statement h2 span:last-child {
   margin-left: clamp(10px, 6vw, 88px);
+}
+.mission-statement h2 span:last-child,
+.host-title span:last-child {
   color: transparent;
   -webkit-text-stroke: 1px #e0d3be;
 }
@@ -257,10 +260,6 @@ body:has(.event-dialog[open]){overflow:hidden}
   column-gap: clamp(24px, 6vw, 96px);
   row-gap: 18px;
   padding: clamp(48px, 8vw, 120px) clamp(12px, 3vw, 48px);
-}
-
-.host-panel > .label {
-  grid-column: 1 / -1;
 }
 
 .host-portrait {
@@ -336,11 +335,10 @@ body:has(.event-dialog[open]){overflow:hidden}
 .host-panel {
   grid-template-columns: minmax(0, 560px) minmax(0, 360px);
   justify-content: center;
-  grid-template-areas: "label label" "title portrait" "bio portrait";
+  grid-template-areas: "title portrait" "bio portrait";
   text-align: center;
 }
 
-.host-panel > .label { grid-area: label; }
 .host-panel .host-title { grid-area: title; align-self: end; margin-bottom: 0; }
 .host-copy { grid-area: bio; align-self: start; }
 
@@ -370,6 +368,12 @@ body:has(.event-dialog[open]){overflow:hidden}
 @media (max-width: 680px) {
   .host-panel {
     grid-template-columns: minmax(0, 480px);
-    grid-template-areas: "label" "title" "portrait" "bio";
+    grid-template-areas: "title" "portrait" "bio";
   }
+}
+
+.host-title {
+  white-space: nowrap;
+  text-transform: uppercase;
+  line-height: .83;
 }

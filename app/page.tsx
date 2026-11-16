@@ -45,8 +45,7 @@ export default function Home() {
         </div>
       </section>
       <section className="editorial text-panel host-panel" id="host">
-        <p className="label">The host</p>
-        <h2 className="host-title" data-reveal>Who am I?</h2>
+        <h2 className="host-title" data-reveal><span>The</span>{' '}<span>host</span></h2>
         <div className="host-portrait" data-reveal>
           <Image src="/food/jesse-headshot.jpg" alt="Jesse, chef and host of Food of Life" fill sizes="(max-width: 680px) 160px, 360px"/>
         </div>
