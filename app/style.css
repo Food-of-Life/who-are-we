@@ -388,6 +388,7 @@ body:has(.event-dialog[open]){overflow:hidden}
 
 .featured-hero .tasting-slide img {
   object-fit: contain;
+  transform: scale(1.12);
 }
 
 .featured-hero .tasting-copy h2 {
