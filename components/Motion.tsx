@@ -39,6 +39,27 @@ export default function Motion() {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(tick);
       gsap.from('.hero h1 span, .hero-center p', { y: 32, opacity: 0, duration: .75, stagger: .09, ease: 'power3.out' });
+      gsap.timeline({
+        defaults: { ease: 'power3.out' },
+        scrollTrigger: { trigger: '.mission-statement', start: 'top 87%', once: true },
+      })
+        .from('.mission-statement h2 span', {
+          x: index => index === 0 ? -48 : 48,
+          opacity: 0,
+          stagger: .18,
+          duration: .85,
+        })
+        .fromTo('.mission-statement h2 span:last-child',
+          { textShadow: '0 0 16px #e0d3be80' },
+          { textShadow: '0 0 16px #e0d3be00', duration: .9 },
+          .3,
+        )
+        .from('.mission-statement > p, .mission-statement > button', {
+          y: 18,
+          opacity: 0,
+          stagger: .12,
+          duration: .65,
+        }, .48);
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(element => {
         gsap.from(element, { opacity: 0, y: 28, duration: .7, scrollTrigger: { trigger: element, start: 'top 94%', once: true } });
       });
