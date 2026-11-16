@@ -5,6 +5,7 @@ import PhotoStory from '../components/PhotoStory';
 import Contact from '../components/Contact';
 
 const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+const instagram = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE;
 
 const missionSlides = [
@@ -45,10 +46,11 @@ export default function Home() {
       </section>
       <section className="editorial text-panel host-panel" id="host">
         <p className="label">The host</p>
-        <div className="host-copy" data-reveal><h2>Who am I?</h2><p>I’m Jesse, a chef and host in Baltimore. I love to cook, but I love bringing people together even more. I believe life is meant to be shared. It can be hard to say what we’ve been carrying, but over the right meal, with someone willing to listen, a little light can reach the parts of ourselves we usually keep tucked away.</p></div>
+        <h2 className="host-title" data-reveal>Who am I?</h2>
         <div className="host-portrait" data-reveal>
-          <Image src="/food/jesse-headshot.jpg" alt="Jesse, chef and host of Food of Life" fill sizes="(max-width: 680px) 240px, 360px"/>
+          <Image src="/food/jesse-headshot.jpg" alt="Jesse, chef and host of Food of Life" fill sizes="(max-width: 680px) 160px, 360px"/>
         </div>
+        <div className="host-copy" data-reveal><p>I’m Jesse, a chef and host in Baltimore. I love to cook, but I love bringing people together even more. I believe life is meant to be shared. It can be hard to say what we’ve been carrying, but over the right meal, with someone willing to listen, a little light can reach the parts of ourselves we usually keep tucked away.</p></div>
       </section>
       <Tasting/>
       <section className="contact" id="contact">
@@ -62,6 +64,7 @@ export default function Home() {
         <address className="sponsor-details">
           <span>Email {email && <a href={'mailto:' + email}>{email}</a>}</span>
           <span>Phone {phone && <a href={'tel:' + phone.replace(/[^+0-9]/g, '')}>{phone}</a>}</span>
+          {instagram && <a href={instagram}>Instagram</a>}
         </address>
         <Contact enabled={formEnabled}/>
       </section>

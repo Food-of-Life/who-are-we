@@ -288,7 +288,7 @@ body:has(.event-dialog[open]){overflow:hidden}
     padding-inline: clamp(12px, 4vw, 24px);
   }
 
-  .host-panel .host-copy h2 {
+  .host-panel .host-title {
     font-size: clamp(26px, 8vw, 44px);
     margin-bottom: 16px;
   }
@@ -299,7 +299,7 @@ body:has(.event-dialog[open]){overflow:hidden}
   }
 
   .host-portrait {
-    width: min(100%, 240px);
+    width: min(100%, 160px);
   }
 }
 
@@ -331,4 +331,45 @@ body:has(.event-dialog[open]){overflow:hidden}
 .host-portrait img {
   object-fit: cover;
   object-position: center 38%;
+}
+
+.host-panel {
+  grid-template-columns: minmax(0, 560px) minmax(0, 360px);
+  justify-content: center;
+  grid-template-areas: "label label" "title portrait" "bio portrait";
+  text-align: center;
+}
+
+.host-panel > .label { grid-area: label; }
+.host-panel .host-title { grid-area: title; align-self: end; margin-bottom: 0; }
+.host-copy { grid-area: bio; align-self: start; }
+
+.host-portrait {
+  grid-area: portrait;
+  justify-self: center;
+}
+
+.contact {
+  padding-block: clamp(72px, 11vw, 160px);
+  text-align: center;
+}
+
+.contact > p:not(.label),
+.contact form {
+  margin-inline: auto;
+}
+
+.contact form {
+  text-align: start;
+}
+
+.contact form button {
+  justify-self: center;
+}
+
+@media (max-width: 680px) {
+  .host-panel {
+    grid-template-columns: minmax(0, 480px);
+    grid-template-areas: "label" "title" "portrait" "bio";
+  }
 }
