@@ -264,6 +264,7 @@ body:has(.event-dialog[open]){overflow:hidden}
 }
 
 .host-portrait {
+  position: relative;
   width: min(100%, 360px);
   aspect-ratio: 4 / 5;
   justify-self: end;
@@ -325,4 +326,9 @@ body:has(.event-dialog[open]){overflow:hidden}
   margin-inline: auto;
   font-size: clamp(16px, 1.7vw, 20px);
   line-height: 1.55;
+}
+
+.host-portrait img {
+  object-fit: cover;
+  object-position: center 38%;
 }
