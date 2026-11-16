@@ -56,9 +56,9 @@ export default function Home() {
         <p className="label">Brand partnerships</p>
         <h2 data-reveal>Let’s set<br/>the table.</h2>
         <p>Partner with us on the next dinner.</p>
-        <a className="deck-button" href="/food/partnership-preview.pdf">
+        <a className="deck-button" href="/food/base-model-deck.pdf">
           <span className="arrow arrow-diagonal" aria-hidden="true"/>
-          <span>View Made With Care deck</span>
+          <span>View Food of Life deck</span>
         </a>
         <address className="sponsor-details">
           <span>Email {email && <a href={'mailto:' + email}>{email}</a>}</span>
