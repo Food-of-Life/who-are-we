@@ -3,12 +3,13 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
-type Slide = { title: string; text: string; photo: string };
+type Slide = { title: string; text: string; photo: string; alt?: string };
 
-export default function PhotoStory({ title, buttonLabel, slides }: {
+export default function PhotoStory({ title, buttonLabel, slides, conceptImagery = true }: {
   title: string;
   buttonLabel: string;
   slides: Slide[];
+  conceptImagery?: boolean;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [story, setStory] = useState({ index: 0, direction: 1 });
@@ -31,11 +32,11 @@ export default function PhotoStory({ title, buttonLabel, slides }: {
     }}>
       <div className="event-story">
         <div key={story.index} className="tasting-slide" data-direction={story.direction}>
-          <Image src={'/food/' + slide.photo} alt="" fill sizes="100vw"/>
+          <Image src={'/food/' + slide.photo} alt={slide.alt ?? ""} fill sizes="100vw"/>
           <div className="tasting-copy">
-            <p className="label">{title} · Concept imagery</p>
+            <p className="label">{title}{conceptImagery && " · Concept imagery"}</p>
             <h2>{slide.title}</h2>
-            <p>{slide.text}</p>
+            {slide.text && <p>{slide.text}</p>}
           </div>
         </div>
         <button className="close-story" type="button" autoFocus onClick={() => dialog.current?.close()}>Close <span aria-hidden="true">×</span></button>
